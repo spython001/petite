@@ -1,0 +1,36 @@
+.topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 4rem;
+  background: rgb(132, 101, 61);
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.navItem {
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 20px;
+  font-style: bold;
+  padding: 0px 10px;
+
+}
+
+.navItem:hover {
+  opacity: 1;
+}
+
+.navItem.active {
+  opacity: 1;
+  color: #d29f08;
+  border-bottom: 2px solid #d29f08;
+}
