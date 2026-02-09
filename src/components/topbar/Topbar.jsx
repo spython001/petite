@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
-import "./Topbar.css";
+import './Topbar.css'
+
+// Move this outside the component
+const sections = [
+  { id: "hero", label: "Home" },
+  { id: "story", label: "Story" },
+  { id: "reasons", label: "Reasons" },
+  { id: "proposal", label: "Proposal" }
+];
 
 export default function Topbar() {
   const [active, setActive] = useState("hero");
-
-  const sections = [
-    { id: "hero", label: "Home" },
-    { id: "story", label: "Story" },
-    { id: "reasons", label: "Reasons" },
-    { id: "proposal", label: "Proposal" }
-  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -20,9 +21,7 @@ export default function Topbar() {
           }
         });
       },
-      {
-        threshold: 0.6 // section must be 60% visible
-      }
+      { threshold: 0.6 }
     );
 
     sections.forEach((section) => {
@@ -31,12 +30,10 @@ export default function Topbar() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, []); // ✅ no warning now
 
   const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth"
-    });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
